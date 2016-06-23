@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/icon.css" />
+    <link rel="stylesheet" href="../css/dropload.css" />
+    <script type="text/javascript" src="../js/swipe.js"></script>
+    <script type="text/javascript">
+      (function() {
+        var t;
+
+        function initHtmlFont() {
+          var maxWidth = 640;
+          var html = document.documentElement;
+          var windowWidth = html.clientWidth;
+          var windowWidth = html.clientWidth > maxWidth ? maxWidth : html.clientWidth;
+          html.style.fontSize = (windowWidth / 640) * 100 + 'px';
+        }
+        window.onresize = function() {
+          clearTimeout(t);
+          t = setTimeout(initHtmlFont, 250);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          initHtmlFont();
+        }, false);
+      })();
+    </script>
+    <!--    头部-->
+    <style>
+      body {
+        overflow: hidden;
+        height: 100%;
+      }
+      
+      #wrap {
+        background: #F7F7F7;
+        -webkit-box-orient: vertical;
+        height: 100%;
+      }
+      
+      
+      header h1 {
+        padding-top: .7rem;
+        height: .88rem;
+        width: 100%;
+        background: #313131;
+        color: white;
+        font-size: .35rem;
+        text-align: center;
+        line-height: .88rem;
+        position: relative;
+      }
+      
+      .icon-sousuo {
+        position: absolute;
+        top: .9rem;
+        right: .25rem;
+        color: white;
+        font-size: .35rem;
+      }
+      /* 轮播图*/
+      
+      .carousel {
+        width: 100%;
+        height: 3rem;
+        background: black;
+        position: relative;
+      }
+      
+      .carousel .swipe {
+        overflow: hidden;
+        visibility: hidden;
+        position: relative;
+        height: 100%;
+      }
+      
+      .carousel .swipe .swipe-wrap {
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .carousel .swipe .swipe-wrap > figure {
+        float: left;
+        width: 100%;
+        position: relative;
+      }
+      
+      .face {
+        width: 100%;
+        height: 3rem;
+      }
+      
+      figure {
+        margin: 0;
+        /* 对齐，四周宽度都为0，在轮播的时候，以整张图片进行移动 */
+      }
+      
+      .carousel nav #position {
+        text-align: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 2.5rem;
+        right: .23rem;
+      }
+      
+      .carousel nav #position li {
+        display: inline-block;
+        width: .2rem;
+        height: .2rem;
+        border-radius: 100%;
+        background: white;
+        margin: 0 2px;
+        cursor: pointer;
+      }
+      
+      .carousel nav #position li.on {
+        background-color: #5A9FE4;
+      }
+      /*内容部分*/
+      
+      #content {
+        margin-top: .2rem;
+        overflow-y: auto;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      
+      .content_div {
+        height: 6.75rem;
+        position: relative;
+        margin: 0 .1rem;
+      }
+      
+      .content_div_head {
+        height: 1rem;
+      }
+      
+      .content_div_head_touxiang {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+      }
+      
+      .content_div_head_touxiang img {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .content_div_head_name {
+        font-size: .35rem;
+        color: #333333;
+        vertical-align: top;
+      }
+      
+      .content_div_head_time {
+        font-size: .23rem;
+        color: #A1A1A1;
+        position: absolute;
+        top: .6rem;
+        left: 1.1rem;
+      }
+      
+      .content_div_head_project {
+        position: absolute;
+        height: .35rem;
+        width: 1.1rem;
+        display: inline-block;
+        border: 1px solid #9BC1E7;
+        border-radius: 2px;
+        text-align: center;
+        line-height: .35rem;
+        color: #9BC1E7;
+        font-size: .25rem;
+        top: .15rem;
+        right: 0;
+      }
+      
+      .content_div p {
+        color: black;
+        font-size: .25rem;
+      }
+      
+      .content_div_body ul {
+        text-align: center;
+        font-size: 0;
+      }
+      
+      .content_div_body_ul1 {
+        margin-top: .05rem;
+        padding: 0;
+      }
+      
+      .content_div_body_ul1 li {
+        width: 31%;
+        height: 1.9rem;
+        display: inline-block;
+        margin: .04rem .04rem;
+      }
+      
+      .content_div_body_ul1 li img {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .content_div_body_ul2 li {
+        display: inline-block;
+        width: 1.95rem;
+        font-size: .3rem;
+        text-align: center;
+        color: #CDCDCD;
+      }
+      
+      .content_div_body_ul2_chakan {
+        position: relative;
+        left: -.3rem;
+      }
+      
+      .content_div_body_ul2_zan {
+        position: relative;
+        left: 0.3rem;
+      }
+      
+     
+    </style>
+  </head>
+
+  <body>
+    <div class="box-flex" id="wrap">
+      <header>
+        <h1>发现</h1>
+        </header>
+        <div class="carousel">
+          <div id="slider" class="swipe" style="visibility:visible;">
+            <div class="swipe-wrap">
+              <figure>
+                <div class="face faceInner">
+                  <a href="#"><img src="img/1.jpg" width="100%" height="100%" /></a>
+                </div>
+              </figure>
+              <figure>
+                <div class="face faceInner">
+                  <a href="#"><img src="img/1.jpg" width="100%" height="100%" /></a>
+                </div>
+              </figure>
+              <figure>
+                <div class="face faceInner">
+                  <a href="#"><img src="img/1.jpg" width="100%" height="100%" /></a>
+                </div>
+              </figure>
+
+            </div>
+          </div>
+          <nav>
+            <ul id="position">
+              <li class="on"></li>
+              <li></li>
+              <li></li>
+
+            </ul>
+          </nav>
+        </div>
+      
+      <i class="iconfont icon-sousuo"></i>
+      <!--    内容部分-->
+      <div class="box-flex-item" id="content">
+        <div class="lists">
+        <!--      模块-->
+        <div class="content_div">
+          <div class="content_div_head">
+            <a class="content_div_head_touxiang"><img src="img/2.png" /></a>
+            <a class="content_div_head_name">一滴水</a>
+            <span class="content_div_head_time">14分钟前</span>
+            <i class="content_div_head_project">GUI设计</i>
+          </div>
+          <div class="content_div_body">
+            <p>酒店预订系统app一枚，欢迎欣赏！</p>
+            <ul class="content_div_body_ul1">
+              <li><img src="img/tu1.jpg" /></li>
+              <li><img src="img/tu2.jpg" /></li>
+              <li><img src="img/tu3.jpg" /></li>
+              <li><img src="img/tu4.jpg" /></li>
+              <li><img src="img/tu5.jpg" /></li>
+              <li><img src="img/tu6.jpg" /></li>
+            </ul>
+            <ul class="content_div_body_ul2">
+              <li class="content_div_body_ul2_chakan iconfont icon-faxian">100</li>
+              <li class="content_div_body_ul2_pinglin iconfont icon-12">100</li>
+              <li class="content_div_body_ul2_zan iconfont icon-zan">100</li>
+            </ul>
+          </div>
+        </div>
+
+        <!--   模块2-->
+
+        <div class="content_div">
+          <div class="content_div_head">
+            <a class="content_div_head_touxiang"><img src="img/2.png" /></a>
+            <a class="content_div_head_name">一滴水</a>
+            <span class="content_div_head_time">14分钟前</span>
+            <i class="content_div_head_project">GUI设计</i>
+          </div>
+          <div class="content_div_body">
+            <p>酒店预订系统app一枚，欢迎欣赏！</p>
+            <ul class="content_div_body_ul1">
+              <li><img src="img/tu1.jpg" /></li>
+              <li><img src="img/tu2.jpg" /></li>
+              <li><img src="img/tu3.jpg" /></li>
+              <li><img src="img/tu4.jpg" /></li>
+              <li><img src="img/tu5.jpg" /></li>
+              <li><img src="img/tu6.jpg" /></li>
+            </ul>
+            <ul class="content_div_body_ul2">
+              <li class="content_div_body_ul2_chakan iconfont icon-faxian">100</li>
+              <li class="content_div_body_ul2_pinglin iconfont icon-12">100</li>
+              <li class="content_div_body_ul2_zan iconfont icon-zan">100</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!--<footer id="foot">
+    <ul>
+      <li class="iconfont icon-faxian1"><a>发现</a></li>
+      <li class="iconfont icon-zhuanti"><a>专题</a></li>
+      <li class="iconfont icon-12"><a>消息</a></li>
+      <li class="iconfont icon-geren"><a>推荐</a></li>
+    </ul>
+    </footer>-->
+
+    </div>
+    <script type="text/javascript" src="../js/zepto.js" ></script>
+    <script type="text/javascript" src="../js/dropload.min.js" ></script>
+    <!--  轮播图-->
+    <script>
+      var slider =
+        Swipe(document.getElementById('slider'), {
+          auto: 3000,
+          continuous: true,
+          disableScroll: false,
+          callback: function(pos) {
+            var i = bullets.length;
+            while (i--) {
+              bullets[i].className = ' ';
+            }
+            bullets[pos].className = 'on';
+          }
+        });
+      var bullets = document.getElementById('position').getElementsByTagName('li');
+    </script>
+    <script>
+    
+      $.ajax({
+        type: "get",
+        url: "http://lingyun.party/tiduihulian/php/demo/test5-29/banner.php?callback=dd",
+        dataType: "jsonp",
+        success: function(data) {
+          var a = data.data
+          $.each(a, function(i) {
+            $("figure").eq(i).find("a").attr("href", a[i]["href"])
+            $("figure").eq(i).find("img").attr("src", a[i]["src"])
+          });
+        }
+      });
+      $.ajax({
+        type: "get",
+        url: "http://lingyun.party/tiduihulian/php/demo/test5-29/fx_data.php?callback=dd",
+        dataType: "jsonp",
+        success: function(data) {
+          var b = data.data
+          console.log(b)
+          $.each(b, function(i) {
+            console.log(b)
+            var imglist;
+            var time;
+            var mokuai = $(".content_div").eq(i);
+            var str = b[i]["headerImg"].substring(0, b[i]["headerImg"].length - 11);
+            mokuai.find("p").text(b[i]["description"]);
+            mokuai.find(".content_div_head_name").text(b[i]["name"])
+            mokuai.find(".content_div_head_touxiang").find("img").attr("src", b[i]["headerImg"]);
+            mokuai.find(".content_div_body_ul2_chakan").text(b[i]["see"])
+            mokuai.find(".content_div_body_ul2_pinglin").text(b[i]["pinglun"])
+            mokuai.find(".content_div_body_ul2_zan").text(b[i]["dianzan"])
+              //     图片墙
+            imglist = b[i]["imgList"].split("/");
+            mokuai.find(".content_div_body_ul1 li").each(function(j) {
+                $(this).find("img").attr("src", str + imglist[j])
+              })
+              //      时间
+              
+              
+              var arr = "";
+              var time;
+              arr=b[i]['time'];
+              var s = new Date().getTime();
+              var timer = (s-arr)/1000;
+              var day = parseInt(timer/(24*60*60));
+              var hour = parseInt(timer%(24*60*60)/3600);
+              var minute = parseInt(timer%(24*60*60)%3600/60);
+              var second = parseInt(timer%(24*60*60)%3600%60);
+              time = day + '天' + hour + '时' ;
+              mokuai.find(".content_div_head_time").text(time);   
+              
+
+          });
+        }
+      });
+   
+ 
+
+  $(function(){
+
+      // dropload
+      var dropload = $('#content').dropload({
+          domUp : {
+              domClass   : 'dropload-up',
+              domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
+              domUpdate  : '<div class="dropload-update">↑释放更新</div>',
+              domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+          },
+          domDown : {
+              domClass   : 'dropload-down',
+              domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+              domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+              domNoData  : '<div class="dropload-noData">暂无数据</div>'
+          },
+          loadUpFn : function(me){
+              $.ajax({
+                  type: 'GET',
+                  url: 'http://lingyun.party/tiduihulian/php/demo/test5-29/fx_data.php?callback=dd',
+                  dataType: 'jsonp',
+                  success: function(data){
+                    var  b = data.data;
+                     $.each(b, function(i) {
+                       
+                       
+                       
+//                     时间差
+              var arr = "";
+              var time;
+              arr=b[i]['time'];
+              var s = new Date().getTime();
+              var timer = (s-arr)/1000;
+              var day = parseInt(timer/(24*60*60));
+              var hour = parseInt(timer%(24*60*60)/3600);
+              var minute = parseInt(timer%(24*60*60)%3600/60);
+              var second = parseInt(timer%(24*60*60)%3600%60);
+              time = day + '天' + hour + '时' ;
+              
+                       
+                       
+                       
+                       
+                       
+                       
+                      var result = '';
+                      var str = b[i]["headerImg"].substring(0, b[i]["headerImg"].length - 11);
+                      var imglist = b[i]["imgList"].split("/");
+                      result = '<div class="content_div">'
+          +'<div class="content_div_head">'
+            +'<a class="content_div_head_touxiang"><img src="'+b[i]["headerImg"]+'" /></a>'
+            +'<a class="content_div_head_name">'+b[i]["name"]+'</a>'
+            +'<span class="content_div_head_time">'+time+'</span>'
+            +'<i class="content_div_head_project">GUI设计</i>'
+          +'</div>'
+          +'<div class="content_div_body">'
+            +'<p>'+b[i]["description"]+'</p>'
+            +'<ul class="content_div_body_ul1">'
+              +'<li><img src="'+str+imglist[0]+'" /></li>'
+              +'<li><img src="'+str+imglist[1]+'" /></li>'
+              +'<li><img src="'+str+imglist[2]+'" /></li>'
+              +'<li><img src="'+str+imglist[3]+'" /></li>'
+              +'<li><img src="'+str+imglist[4]+'" /></li>'
+              +'<li><img src="'+str+imglist[5]+'" /></li>'
+            +'</ul>'
+            +'<ul class="content_div_body_ul2">'
+              +'<li class="content_div_body_ul2_chakan iconfont icon-faxian">'+b[i]["see"]+'</li>'
+              +'<li class="content_div_body_ul2_pinglin iconfont icon-12">'+b[i]["pinglun"]+'</li>'
+              +'<li class="content_div_body_ul2_zan iconfont icon-zan">'+b[i]["dianzan"]+'</li>'
+            +'</ul>'
+          +'</div>'
+        +'</div>'
+                      // 为了测试，延迟1秒加载
+                      setTimeout(function(){
+                          $('.lists').html(result);
+                          // 每次数据加载完，必须重置
+                          dropload.resetload();
+                      },1000);
+                      })
+                  },
+                  
+                  error: function(xhr, type){
+                      alert('Ajax error!');
+                      // 即使加载出错，也得重置
+                      dropload.resetload();
+                  }
+                  
+              });
+          },
+          loadDownFn : function(me){
+              $.ajax({
+                  type: 'GET',
+                  url: 'http://lingyun.party/tiduihulian/php/demo/test5-29/fx_data.php?callback=dd',
+                  dataType: 'jsonp',
+                  success: function(data){
+                    
+                    
+                    
+                    
+                    var  b = data.data;
+                     $.each(b, function(i) {
+                       
+//                    时间 
+                       var arr = "";
+              var time;
+              arr=b[i]['time'];
+              var s = new Date().getTime();
+              var timer = (s-arr)/1000;
+              var day = parseInt(timer/(24*60*60));
+              var hour = parseInt(timer%(24*60*60)/3600);
+              var minute = parseInt(timer%(24*60*60)%3600/60);
+              var second = parseInt(timer%(24*60*60)%3600%60);
+              time = day + '天' + hour + '时' ;
+                       
+                       
+                       
+                       
+                       
+                      var result = '';
+                      var str = b[i]["headerImg"].substring(0, b[i]["headerImg"].length - 11);
+                      var imglist = b[i]["imgList"].split("/");
+                      result = '<div class="content_div">'
+          +'<div class="content_div_head">'
+            +'<a class="content_div_head_touxiang"><img src="'+b[i]["headerImg"]+'" /></a>'
+            +'<a class="content_div_head_name">'+b[i]["name"]+'</a>'
+            +'<span class="content_div_head_time">'+time+'</span>'
+            +'<i class="content_div_head_project">GUI设计</i>'
+          +'</div>'
+          +'<div class="content_div_body">'
+            +'<p>'+b[i]["description"]+'</p>'
+            +'<ul class="content_div_body_ul1">'
+              +'<li><img src="'+str+imglist[0]+'" /></li>'
+              +'<li><img src="'+str+imglist[1]+'" /></li>'
+              +'<li><img src="'+str+imglist[2]+'" /></li>'
+              +'<li><img src="'+str+imglist[3]+'" /></li>'
+              +'<li><img src="'+str+imglist[4]+'" /></li>'
+              +'<li><img src="'+str+imglist[5]+'" /></li>'
+            +'</ul>'
+            +'<ul class="content_div_body_ul2">'
+              +'<li class="content_div_body_ul2_chakan iconfont icon-faxian">'+b[i]["see"]+'</li>'
+              +'<li class="content_div_body_ul2_pinglin iconfont icon-12">'+b[i]["pinglun"]+'</li>'
+              +'<li class="content_div_body_ul2_zan iconfont icon-zan">'+b[i]["dianzan"]+'</li>'
+            +'</ul>'
+          +'</div>'
+        +'</div>'
+                      // 为了测试，延迟1秒加载
+                      setTimeout(function(){
+                          $('.lists').append(result);
+                          // 每次数据加载完，必须重置
+                          dropload.resetload();
+                      },1000);
+                      })
+
+                  },
+                  error: function(xhr, type){
+                      alert('Ajax error!');
+                      // 即使加载出错，也得重置
+                      dropload.resetload();
+                  }
+                });
+              }
+            });
+          });
+</script>
+  </body>
+
+</html>

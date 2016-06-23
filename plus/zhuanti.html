@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/icon.css" />
+    
+    <script type="text/javascript">
+      (function() {
+        var t;
+
+        function initHtmlFont() {
+          var maxWidth = 640;
+          var html = document.documentElement;
+          var windowWidth = html.clientWidth;
+          var windowWidth = html.clientWidth > maxWidth ? maxWidth : html.clientWidth;
+          html.style.fontSize = (windowWidth / 640) * 100 + 'px';
+        }
+        window.onresize = function() {
+          clearTimeout(t);
+          t = setTimeout(initHtmlFont, 250);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          initHtmlFont();
+        }, false);
+      })();
+    </script>
+    <!--    头部-->
+    <style>
+      body {
+        overflow: hidden;
+      }
+      
+      #wrap {
+        background: #F7F7F7;
+        -webkit-box-orient: vertical;
+        height: 100%; 
+      }
+      
+      header h1 {
+        padding-top: .7rem;
+        height: .88rem;
+        width: 100%;
+        background: #313131;
+        color: white;
+        font-size: .35rem;
+        text-align: center;
+        line-height: .88rem;
+      }
+      
+      #content {
+        margin-top: .2rem;
+        overflow-y: auto;
+        width: 100%;
+        overflow-x: hidden;
+      }
+/*      内容*/
+     #content ul {
+       font-size:0 ;
+       text-align: center;
+       margin: 0 .2rem;
+     }
+      #content ul li{
+        display: inline-block;
+        width: 2.9rem;
+        height: 2rem;
+        border-radius:5px ;
+        background: red;
+        margin: .05rem;
+        position: relative;
+      }
+      
+      #content ul li img{
+        width: 100%;
+        height: 100%;
+      }
+      
+      .mengban{
+        width: 2.9rem;
+        height: 2rem;
+        border-radius:5px ;
+        background:rgba(0,0,0,.4);
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        padding-top: .8rem;
+        box-sizing: border-box;
+      }
+      .mengban .p1{
+        font-size:.3rem ;
+        color: white;
+        font-weight:bold ;
+      }
+      .mengban .p2{
+        font-size:.25rem ;
+        color: #E98301;
+      }
+      #foot {
+        height: 1rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background:rgba(0, 0, 0, 0.9);
+      }
+      #foot ul {
+        font-size: 0;
+      }
+      #foot li {
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+        color: white;
+        padding-top: .55rem;
+        position: relative;
+      }
+      #foot li:before {
+        font-size: .35rem;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: .1rem;
+        left: 0;
+      }
+     
+    </style>
+  </head>
+
+  <body>
+    <div class="box-flex" id="wrap">
+      <header>
+        <h1>专题</h1>
+      </header>
+
+      <!--    内容部分-->
+      <section class="box-flex-item" id="content">
+        <ul>
+          <li><img src="../img/zt1.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt2.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt3.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt4.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt5.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt6.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt7.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt8.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt9.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+          <li><img src="../img/zt1.jpg"/>
+          <span class="mengban"><p class="p1">网页设计</p><p class="p2">1200篇</p></span>
+          </li>
+        </ul>
+      </section>
+
+      <!--<footer id="foot">
+        <ul>
+          <li class="iconfont icon-faxian1"><a>发现</a></li>
+          <li class="iconfont icon-zhuanti"><a>专题</a></li>
+          <li class="iconfont icon-12"><a>消息</a></li>
+          <li class="iconfont icon-geren"><a>推荐</a></li>
+        </ul>
+      </footer>-->
+
+    </div>
+    
+  </body>
+
+</html>

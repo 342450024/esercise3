@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/icon.css" />
+    <script type="text/javascript" src="js/swipe.js"></script>
+    <script type="text/javascript">
+      (function() {
+        var t;
+
+        function initHtmlFont() {
+          var maxWidth = 640;
+          var html = document.documentElement;
+          var windowWidth = html.clientWidth;
+          var windowWidth = html.clientWidth > maxWidth ? maxWidth : html.clientWidth;
+          html.style.fontSize = (windowWidth / 640) * 100 + 'px';
+        }
+        window.onresize = function() {
+          clearTimeout(t);
+          t = setTimeout(initHtmlFont, 250);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          initHtmlFont();
+        }, false);
+      })();
+    </script>
+    <!--    头部-->
+    <style>
+      body {
+        overflow: hidden;
+      }
+      
+      #foot {
+        height: 1rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      
+      #foot ul {
+        font-size: 0;
+      }
+      
+       li{
+        /*font-size: .25rem;*/
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+        color: white;
+        padding-top: .55rem;
+        position: relative;
+        
+      }
+      
+      #foot li:before {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: .2rem;
+        left: 0;
+      }
+      .on,.on:before{
+        color: #5a9fe4;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+
+    <footer id="foot">
+      <ul>
+        <li class="iconfont icon-faxian1 on"><a>发现</a></li>
+        <li class="iconfont icon-zhuanti"><a>专题</a></li>
+        <li class="iconfont icon-12"><a>消息</a></li>
+        <li class="iconfont icon-geren"><a>推荐</a></li>
+      </ul>
+    </footer>
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script>
+      // H5 plus事件处理
+      var index = 0;
+      var t_height;
+
+      function plusReady() {
+        t_height = $("#foot ul").height();
+        console.log(t_height)
+        openWebview();
+      }
+      if (window.plus) {
+        plusReady();
+      } else {
+        document.addEventListener("plusready", plusReady, false);
+      }
+      // 创建并显示新窗口
+      function openWebview() {
+        plus.webview.open("plus/index.html", "index.html", {
+          bottom: t_height
+        });
+        $("#foot ul").on("tap", "li", function() {
+          $("#foot li").removeClass("on")
+          $(this).addClass("on");
+          
+          
+          var index = $(this).index();
+          console.log(index)
+          if (index == 0) {
+            plus.webview.open("plus/index.html", "index.html", {
+              bottom: t_height
+            });
+          } else if (index == 1) {
+            plus.webview.open("plus/zhuanti.html", "zhuanti.html", {
+              bottom: t_height
+            });
+          } else if (index == 2) {
+            plus.webview.open("plus/xiaoxi.html", "xiaoxi.html", {
+              bottom: t_height
+            });
+          } else {
+            plus.webview.open("plus/me.html", "me.html", {
+              bottom: t_height
+            });
+          }
+        })
+      }
+    </script>
+   
+  </body>
+
+</html>

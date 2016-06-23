@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/icon.css" />
+    
+    <script type="text/javascript">
+      (function() {
+        var t;
+
+        function initHtmlFont() {
+          var maxWidth = 640;
+          var html = document.documentElement;
+          var windowWidth = html.clientWidth;
+          var windowWidth = html.clientWidth > maxWidth ? maxWidth : html.clientWidth;
+          html.style.fontSize = (windowWidth / 640) * 100 + 'px';
+        }
+        window.onresize = function() {
+          clearTimeout(t);
+          t = setTimeout(initHtmlFont, 250);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          initHtmlFont();
+        }, false);
+      })();
+    </script>
+    <!--    头部-->
+    <style>
+      body {
+        overflow: hidden;
+      }
+      
+      #wrap {
+        background: #F7F7F7;
+        -webkit-box-orient: vertical;
+        height: 100%;
+      }
+      
+      header h1 {
+        padding-top: .7rem;
+        height: .88rem;
+        width: 100%;
+        background: #313131;
+        color: white;
+        font-size: .35rem;
+        text-align: center;
+        line-height: .88rem;
+      }
+      
+      #content {
+        margin-top: .2rem;
+        overflow-y: auto;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      
+      .content_div {
+        font-size: .3rem;
+        height: 6.75rem;
+        position: relative;
+        margin: 0 .1rem;
+      }
+      
+      .content_div_head {
+        position: relative;
+        height: 1.3rem;
+      }
+      
+      .content_div_head:before {
+        position: absolute;
+        font-size: .3rem;
+        bottom: .3rem;
+        right: .25rem;
+      }
+      
+      .content_div_head_touxiang {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+      }
+      
+      .content_div_head_touxiang img {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .content_div_head_name {
+        font-size: .35rem;
+        color: #333333;
+        vertical-align: top;
+        font-weight: bold;
+      }
+      
+      .content_div_head_jieshao{
+        font-size: .23rem;
+        color: #A1A1A1;
+        position: absolute;
+        top: .6rem;
+        left: 1.1rem;
+      }
+      .content_div_head_jieshao:before{
+        position: absolute;
+        top: 0;
+        left: 2.75rem;
+        color: #FF4F4F;
+      }
+      .content_div_head_time{
+        font-size: .23rem;
+        color: #A1A1A1;
+        float: right;
+        margin-right: .2rem;
+      }
+      #content ul{
+        margin-top: .3rem;
+      }
+      #content li{
+        line-height: .85rem;
+        height: .85rem;
+        padding-left: .8rem;
+        color: #595959;
+        position: relative;
+      }
+      #content li:before{
+        position: absolute;
+        top:0;
+        left:0.25rem;
+        font-size:.4rem ;
+        color: #5A9FE4;
+      }
+      #content li a:before{
+        position: absolute;
+         top: 0;
+        left: 5.65rem;
+        font-size: .3rem;
+        
+        
+      }
+      .myself_renzheng>a{
+        color: #999999;
+      }
+      #content .myself_renzheng:before{
+        color: #999999;
+      }
+      
+      
+      #foot {
+        height: 1rem;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      #foot ul {
+        font-size: 0;
+      }
+      #foot li {
+        
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+        color: white;
+        padding-top: .55rem;
+        position: relative;
+      }
+      #foot li:before {
+        font-size: .35rem;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: .1rem;
+        left: 0;
+      }
+      .content_div_head_touxiang:before{
+        width: .9rem;
+        height: .9rem;
+        position: absolute;
+        font-size:.5rem ;
+        text-align: center;
+        line-height: .9rem;
+        color: white;
+        
+      }
+     .xitong:before{
+       background: #5A9FE4;
+     }
+      .daizan:before{
+       background: #FF4F4F;
+     }
+      .pinglun:before{
+       background: #EDB262;
+     }
+    </style>
+  </head>
+
+  <body>
+    <div class="box-flex" id="wrap">
+      <header>
+        <h1>消息</h1>
+      </header>
+
+      <!--    内容部分-->
+      <section class="box-flex-item" id="content">
+        <div class="content_div">
+          <div class="content_div_head ">
+            <a class="content_div_head_touxiang"><img src="../img/2.png" /></a>
+            <a class="content_div_head_name">漂流的猪</a>
+            <span class="content_div_head_jieshao">想要你那套大学APP，电话：16888888888</span>
+            <span class="content_div_head_time">10:22</span>
+          </div>
+           <div class="content_div_head ">
+            <a class="content_div_head_touxiang xitong iconfont icon-weibiaoti1"></a>
+            <a class="content_div_head_name ">系统通知</a>
+            <span class="content_div_head_jieshao">你发布的原创作品:《小何》被管理员设置为...</span>
+            <span class="content_div_head_time">1天前</span>
+          </div>
+          <div class="content_div_head ">
+            <a class="content_div_head_touxiang daizan iconfont icon-dianzan2"></a>
+            <a class="content_div_head_name ">点赞</a>
+            <span class="content_div_head_jieshao">王磊、程刚、王晓曦、至善至断、顾独行...</span>
+            <span class="content_div_head_time">2天前</span>
+          </div>
+          
+           <div class="content_div_head ">
+            <a class="content_div_head_touxiang pinglun iconfont icon-xinxi"></a>
+            <a class="content_div_head_name ">评论</a>
+            <span class="content_div_head_jieshao">王磊：你这个app做的不错，是你自创的吗？</span>
+            <span class="content_div_head_time">3天前</span>
+          </div>
+           <div class="content_div_head ">
+            <a class="content_div_head_touxiang"><img src="../img/2.png" /></a>
+            <a class="content_div_head_name">一滴水</a>
+            <span class="content_div_head_jieshao">你好，大神，能手下小弟吗？</span>
+            <span class="content_div_head_time">72天前</span>
+          </div>
+           <div class="content_div_head ">
+            <a class="content_div_head_touxiang"><img src="../img/2.png" /></a>
+            <a class="content_div_head_name">上善若水</a>
+            <span class="content_div_head_jieshao">你扣扣多少，有私单找你？</span>
+            <span class="content_div_head_time">72天前</span>
+          </div>
+         
+         
+         
+         
+         
+        </div>
+      </section>
+
+      <!--<footer id="foot">
+        <ul>
+          <li class="iconfont icon-faxian1"><a>发现</a></li>
+          <li class="iconfont icon-zhuanti"><a>专题</a></li>
+          <li class="iconfont icon-12"><a>消息</a></li>
+          <li class="iconfont icon-geren"><a>推荐</a></li>
+        </ul>
+      </footer>-->
+
+    </div>
+
+  </body>
+
+</html>
